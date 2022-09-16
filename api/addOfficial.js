@@ -4,7 +4,7 @@ const router = express.Router();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://ukrtransbezpeka:d6hj0F39FYkYks3W@cluster0.tbvdrzc.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-const collection = client.db("ukrtransbezpeka").collection("things");
+const collection = client.db("ukrtransbezpeka").collection("officials");
 
 router.post("/", (req, res) => {
   try {
@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
         if(err){ 
             return console.log(err);
         }
-        console.log('added new thing');
+        console.log('added new user');
         client.close();
       });
     });
